@@ -1,0 +1,16 @@
+.footer {
+  margin-top: 8px;
+	&__container {
+		text-align: center;
+		padding-inline: 24px;
+		margin-inline: auto;
+	}
+
+	&__body {
+		font-size: 10px;
+		opacity: 0.7;
+		& a {
+			color: rgb(172, 172, 247);
+		}
+	}
+}

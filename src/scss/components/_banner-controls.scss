@@ -1,0 +1,74 @@
+.banner-controls {
+	&__container {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__button {
+		background: $black;
+		border: 0.5px solid $white;
+		cursor: pointer;
+		transition: all 0.3s ease 0s;
+
+		& img {
+			transition: all 0.3s ease 0s;
+		}
+
+		&_left,
+		&_right {
+			padding: 8px 26px;
+		}
+
+		&_left {
+			border-radius: 30px 0 0 30px;
+			margin-right: -12px;
+			& img {
+				transform: rotate(180deg);
+			}
+		}
+
+		&_center {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 64px;
+			height: 64px;
+			border-radius: 50%;
+			position: relative;
+			z-index: 2;
+		}
+
+		&_right {
+			border-radius: 0 30px 30px 0;
+			margin-left: -12px;
+		}
+
+		@media ($mouse-device) {
+			&:hover {
+				& img {
+					opacity: 0.7;
+				}
+			}
+		}
+	}
+
+	@media ($tablet) {
+		&__button {
+			&_left,
+			&_right {
+				padding: 5px 16px;
+			}
+			&_left {
+				margin-right: -8px;
+			}
+			&_center {
+				width: 50px;
+				height: 50px;
+			}
+			&_right {
+				margin-left: -8px;
+			}
+		}
+	}
+}

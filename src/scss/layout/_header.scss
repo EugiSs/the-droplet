@@ -1,0 +1,187 @@
+.header {
+	margin-bottom: 40px;
+
+	// для отображения border
+	--width: 268px;
+	position: relative;
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		width: calc((100% - var(--width)) / 2);
+		height: 30%;
+		bottom: 0;
+		border-bottom: 1px solid $white;
+	}
+	&::before {
+		left: 0;
+		border-right: 1px solid $white;
+		border-radius: 0 0 14px 0;
+	}
+	&::after {
+		right: 0;
+		border-left: 1px solid $white;
+		border-radius: 0 0 0 14px;
+	}
+
+	&__container {
+		max-width: 1320px;
+		box-sizing: content-box;
+		padding-inline: 24px;
+		margin-inline: auto;
+	}
+
+	&__body {
+	}
+
+	&__center {
+		width: max-content;
+		border: 1px solid $white;
+		border-bottom: transparent;
+		border-radius: 14px;
+		margin-inline: auto;
+		margin-top: -43px;
+	}
+
+	&__title {
+		display: block;
+		font-family: $secondaryFont;
+		font-size: 34px;
+		font-weight: 500;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		background: $black;
+		border-radius: 14px 14px 0 0;
+		padding: 12px 22px 6px;
+	}
+
+	&__menu {
+		padding: 10px 0;
+	}
+
+	&__menu-list {
+		display: flex;
+		justify-content: space-between;
+
+		& > * {
+			flex: 0 1 40%;
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 8px;
+		}
+		&_left {
+			justify-content: center;
+		}
+		&_right {
+			justify-content: flex-end;
+		}
+	}
+
+	&__menu-item {
+		cursor: pointer;
+		transition: all 0.3s ease 0s;
+
+    &.hidden {
+      display: none;
+    }
+
+		@media ($mouse-device) {
+			&:hover {
+				opacity: 0.7;
+			}
+		}
+	}
+
+	&__menu-link {
+		display: block;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		padding: 8px 16px;
+	}
+
+	&__burger {
+		display: none;
+		& img {
+			@extend %img;
+		}
+	}
+
+	@media ($projector) {
+		&__menu-link {
+			font-size: 11px;
+			padding: 5px;
+		}
+	}
+	@media ($desktop) {
+		&__container {
+			padding-inline: 15px;
+		}
+		&__title {
+			font-size: 22px;
+			padding: 8px;
+		}
+	}
+	@media ($tablet) {
+		&__container {
+			padding-top: 10px;
+		}
+		&__center {
+			margin-top: -30px;
+		}
+		&__menu {
+			position: absolute;
+			z-index: 99;
+			top: 0;
+			right: -100vw;
+			width: 100%;
+			max-width: 320px;
+			height: 100vh;
+			background: $black;
+			border-left: 1px solid $white;
+			border-radius: 30px 0 0 30px;
+			padding: 70px 15px 20px;
+			transition: all 0.3s ease 0s;
+			&.active {
+				right: 0;
+			}
+		}
+		&__menu-list {
+			flex-direction: column;
+			&_left,
+			&_right {
+				flex-direction: column;
+				justify-content: center;
+			}
+		}
+		&__menu-link {
+			font-size: 12px;
+		}
+		&__burger {
+			display: block;
+			position: relative;
+			z-index: 100;
+			width: max-content;
+			cursor: pointer;
+			margin-left: auto;
+			& > * {
+				width: 34px;
+				height: 34px;
+			}
+			&_open {
+				display: block;
+			}
+			&_close {
+				display: none;
+			}
+			&.active {
+				.header__burger_open {
+					display: none;
+				}
+				.header__burger_close {
+					display: block;
+				}
+			}
+		}
+	}
+}

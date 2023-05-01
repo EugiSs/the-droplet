@@ -1,0 +1,35 @@
+*,*::before,*::after {
+padding: 0;
+margin: 0;
+border: 0;
+box-sizing: border-box;
+}
+html,body {height: 100%;}
+body {
+min-height: 100%;
+font-family: $mainFont;
+font-size: 16px;
+line-height: 150%;
+color: $white;
+background-color: $black;
+}
+a, a:visited {
+text-decoration: none;
+color: inherit;
+}
+button {
+  font-family: inherit;
+}
+button:hover, a:hover {
+cursor: pointer;
+}
+ul,ol,li {
+list-style: none;
+}
+h1,h2,h3,h4,h5,h6 {
+font-weight: inherit;
+font-size: inherit;
+}
+img {
+vertical-align: middle;
+}
