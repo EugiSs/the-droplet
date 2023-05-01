@@ -1,5 +1,7 @@
 # The Droplet
 
+[Превью](https://evgiss.github.io/the-droplet/)
+
 ## Функционал
 
 - 'резиновый' адаптив
